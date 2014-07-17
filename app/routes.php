@@ -18,21 +18,36 @@ Route::get('/', function()
 });
 
 
-Route::get('/lorem-ipsum/{numPara}', function($numPara)
+Route::get('/lorem-ipsum/', function()
 {
 	$generator = new Badcow\LoremIpsum\Generator();
-	$paragraphs = $generator->getParagraphs($numPara);
+	$query = Input::get('query');
+	$text ="";
+		if($query) {
+			$paragraphs = $generator->getParagraphs((int)$query);
+			for ($i=0; $i < sizeof($paragraphs); $i++){
+
+				$text .='<p>'. $paragraphs[$i];
+			}
+		}
+	return View::make('paragraphs')	->with('query', $query)->with('text', $text);
+	
 	//echo 
-	return implode('<p>', $paragraphs);
+	
 });
 
-Route::get('/user-generator/{numUser}', function($numUser = 5)
+Route::get('/user-generator/', function()
 {
 	$faker = Faker\Factory::create();
-
-	for($i=0;$i<$numUser;$i++){
-		echo $faker->name ."<br/>" ;
-	}
+	$query = Input::get('query');
+	$text ="";
+		if($query) {
+			for($i=0;$i<(int)$query;$i++){
+				$text.= $faker->name ."<br/>" ;
+			}
+		}
+	return View::make('users')	->with('query', $query)->with('text', $text);
+	
 	
 	return $numUser;
 });

@@ -1,9 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Laravel PHP Framework</title>
-	<style>
+
+<title>@yield('title','Developers Best Friend')</title>
+
+<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css" rel="stylesheet">
+<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
 		body {
@@ -15,7 +17,7 @@
 
 		.welcome {
 			width: 300px;
-			height: 200px;
+			height: 100px;
 			position: absolute;
 			left: 50%;
 			top: 50%;
@@ -32,16 +34,15 @@
 			margin: 16px 0 0 0;
 		}
 	</style>
-</head>
-<body>
-	<div class="welcome">
-		<h1>Developer's Best Friend</h1>
-		<h3>Helping Developers generate paragraphs and users since 2014</h3>
-		<br/>
 
-		<a href='/lorem-ipsum/5'>Generate Paragraphs</a> |
-		<a href='/user-generator/5'>Generate Users</a>
-		
-	</div>
+</head>
+
+<body>
+
+@yield('content')
+
+@yield('body')
+
 </body>
+
 </html>
