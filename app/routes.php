@@ -11,7 +11,22 @@
 |
 */
 
+
 Route::get('/', function()
 {
-	return View::make('hello');
+	return "Welcome" ;//"View::make('hello')";
+});
+
+
+Route::get('/lorem-ipsum/{numPara}', function($numPara)
+{
+	$generator = new Badcow\LoremIpsum\Generator();
+	$paragraphs = $generator->getParagraphs($numPara);
+	//echo 
+	return implode('<p>', $paragraphs);
+});
+
+Route::get('/user-generator/{numUser}', function($numUser = 5)
+{
+	return $numUser;
 });
