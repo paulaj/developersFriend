@@ -1,5 +1,5 @@
 
-# P2: Generate Password!
+# P3: Developers Best Friend!
 
 ## Live URL
 http://developersfriend-pjparty.rhcloud.com/
