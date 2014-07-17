@@ -14,7 +14,7 @@
 
 Route::get('/', function()
 {
-	return "Welcome" ;//"View::make('hello')";
+	return View::make('hello');
 });
 
 
@@ -28,5 +28,11 @@ Route::get('/lorem-ipsum/{numPara}', function($numPara)
 
 Route::get('/user-generator/{numUser}', function($numUser = 5)
 {
+	$faker = Faker\Factory::create();
+
+	for($i=0;$i<$numUser;$i++){
+		echo $faker->name ."<br/>" ;
+	}
+	
 	return $numUser;
 });
